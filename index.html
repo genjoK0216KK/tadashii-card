@@ -5,7 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ただしいカード｜年会費無料×高還元で選ぶ、初めての1枚</title>
 <meta name="description" content="クレカ初心者のための比較サイト。年会費無料で高還元のクレジットカードを、初心者目線でランキング・徹底比較。失敗しない最初の1枚の選び方をやさしく解説します。">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23e2362f'/><rect x='7' y='11' width='18' height='12' rx='2' fill='white'/><rect x='7' y='14.5' width='18' height='2.5' fill='%23e2362f'/></svg>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ただしいカード｜年会費無料×高還元で選ぶ、初めての1枚">
+<meta property="og:description" content="クレカ初心者のための比較サイト。年会費無料で高還元のカードをランキング・徹底比較。">
+<meta property="og:url" content="https://tadashii-card.com/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -64,6 +70,70 @@
 
 <main>
   <div class="disclosure">本サイトにはプロモーション（アフィリエイト）が含まれます。掲載の年会費・還元率などは2026年6月時点のもので、最新・正確な条件は必ず各カード公式サイトでご確認ください。</div>
+
+  <section class="quiz" id="quiz">
+    <div class="qz-head"><span class="tag">30秒でわかる</span><h2>あなたに合う「最初の1枚」診断</h2></div>
+    <div class="step active" data-step="1">
+      <div class="progress">質問 1 / 2</div>
+      <div class="q">いまの年齢は？</div>
+      <div class="opts">
+        <button class="opt" data-age="young">18〜39歳</button>
+        <button class="opt" data-age="adult">40歳以上</button>
+      </div>
+    </div>
+    <div class="step" data-step="2">
+      <div class="progress">質問 2 / 2</div>
+      <div class="q">カードで一番重視したいことは？</div>
+      <div class="opts">
+        <button class="opt" data-need="conv">コンビニ・飲食でお得にしたい</button>
+        <button class="opt" data-need="rate">どこでも高還元がいい</button>
+        <button class="opt" data-need="fast">とにかく早く作って使いたい</button>
+        <button class="opt" data-need="net">ネット通販（Amazon等）でよく使う</button>
+      </div>
+    </div>
+    <div class="result">
+      <div class="qr-badge">★ あなたへのおすすめ</div>
+      <div class="qr-inner">
+        <div class="qr-visual"></div>
+        <div class="qr-body">
+          <h3 class="qr-name"></h3>
+          <p class="qr-desc"></p>
+          <a class="btn qr-link" href="#">詳しく見る ▶</a>
+        </div>
+      </div>
+      <button class="restart">もう一度診断する</button>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var quiz=document.getElementById('quiz');if(!quiz)return;
+    var state={age:null,need:null};
+    var cards={
+      jcb:{name:'JCBカードW',desc:'年会費永年無料で実質1.0%還元。Amazon・スタバなど優待店でさらにお得な、39歳以下の最有力カードです。',link:'article1.html',cls:'cv-jcb',brand:'JCB',sub:'W'},
+      smbc:{name:'三井住友カード（NL）',desc:'対象のコンビニ・飲食店のタッチ決済で還元率が大幅アップ。年会費永年無料・最短即時発行の定番カードです。',link:'article3.html',cls:'cv-smbc',brand:'VISA',sub:'NL'},
+      recruit:{name:'リクルートカード',desc:'基本還元率1.2%はトップクラス。どこで使っても高還元を重視する人に向く、年会費永年無料の一枚です。',link:'article4.html',cls:'cv-recruit',brand:'VISA',sub:'1.2%'},
+      epos:{name:'エポスカード',desc:'年会費永久無料で最短即日発行。すぐ作りたい人やマルイをよく使う人にぴったりの一枚です。',link:'article1.html',cls:'cv-epos',brand:'VISA',sub:'EPOS'}
+    };
+    function pick(){
+      if(state.need==='conv')return cards.smbc;
+      if(state.need==='rate')return cards.recruit;
+      if(state.need==='fast')return cards.epos;
+      if(state.need==='net')return state.age==='young'?cards.jcb:cards.recruit;
+      return cards.jcb;
+    }
+    function show(n){var s=quiz.querySelectorAll('.step');for(var i=0;i<s.length;i++){s[i].classList.toggle('active',s[i].getAttribute('data-step')==n);}}
+    var ageBtns=quiz.querySelectorAll('[data-age]');for(var a=0;a<ageBtns.length;a++){ageBtns[a].addEventListener('click',(function(b){return function(){state.age=b.getAttribute('data-age');show(2);};})(ageBtns[a]));}
+    var needBtns=quiz.querySelectorAll('[data-need]');for(var n=0;n<needBtns.length;n++){needBtns[n].addEventListener('click',(function(b){return function(){state.need=b.getAttribute('data-need');var c=pick();
+      quiz.querySelector('.qr-name').textContent=c.name;
+      quiz.querySelector('.qr-desc').textContent=c.desc;
+      quiz.querySelector('.qr-link').setAttribute('href',c.link);
+      quiz.querySelector('.qr-visual').innerHTML='<div class="cardvis '+c.cls+'" style="max-width:230px"><div class="cv-top"><span>CREDIT</span><span>'+c.sub+'</span></div><div class="chip"></div><div class="cv-name">'+c.name+'</div><div class="cv-foot"><span>年会費無料</span><span>'+c.brand+'</span></div></div>';
+      var st=quiz.querySelectorAll('.step');for(var i=0;i<st.length;i++){st[i].classList.remove('active');}
+      quiz.querySelector('.result').classList.add('show');
+    };})(needBtns[n]));}
+    quiz.querySelector('.restart').addEventListener('click',function(){state={age:null,need:null};quiz.querySelector('.result').classList.remove('show');show(1);});
+  })();
+  </script>
 
   <h2 class="section-title">なぜ「年会費無料 × 高還元」で選ぶの？</h2>
   <p class="section-sub">この2つを満たすだけで、初心者でも「損しない最初の1枚」が選べます。</p>
