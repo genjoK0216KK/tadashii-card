@@ -22,7 +22,7 @@ URLを推測して `href="#"` やダミーリンクを書かない。提携済�
 | 楽天カード | もしも | `https://af.moshimo.com/af/c/click?a_id=5632528&p_id=7276&pc_id=20877&pl_id=91965`<br>計測: `https://i.moshimo.com/af/i/impression?a_id=5632528&p_id=7276&pc_id=20877&pl_id=91965` |
 | エポスカード | アクセストレード | `https://h.accesstrade.net/sp/cc?rk=0100i7hh00ou18`<br>計測: `https://h.accesstrade.net/sp/rr?rk=0100i7hh00ou18` |
 
-設置済み: `index.html`（比較表）, `article1`, `article2`, `article4`, `article10`, `article25`, `article26`, `article27`, `article28`
+設置済み: `index.html`（比較表）, `article1`, `article2`, `article4`, `article10`, `article25`, `article26`, `article27`, `article28`, `article32`
 
 JCBカードW・リクルート・三井住友NL・セゾンは **A8で未提携**（2026-10-30時点）。提携が通るまでは各レビュー記事への内部リンクで導線化する。
 
@@ -145,13 +145,13 @@ GSCで実際に表示が出ているクエリ（2026-10-19、28日間、すべ�
 | 家族カード 別世帯 | 4 |
 | 家族カード 範囲 | 4 |
 
-**article32 の穴**: 「別世帯」「恋人」「事実婚」「パートナー」「範囲」は本文に **0件**、「同居」は1件のみ。表示は出ているのに中身が答えていない。まず article32 を強化し、その後サテライト記事を作るのが順序。
+**article32 は 2026-11-07 に強化済み**（本人「全部反映させて」）: 主要8社の公式条件表、別居・別世帯、恋人・事実婚・同性パートナーの節、FAQ11問＋FAQPage構造化データ。以後のサテライト記事は article32 と相互リンクする（月曜の新規記事タスクを家族カード関連だけに変更済み）。
 
 発行条件は**カード会社ごとに異なる**（別居家族の扱いが特に分かれる）。推測で書かず、各社公式の規定を出典付きで確認すること。
 
 ### その他の継続課題
 - `index.html` と `article1.html` 以外の濃い記事（article29〜42）に実ASPリンクが無い
-- 構造化データ（JSON-LD）は article1 のみ。全記事にFAQがあるのに FAQPage を出していない
+- 構造化データ（JSON-LD）は article1・article32 のみ。全記事にFAQがあるのに FAQPage を出していない
 - og:image が0件
 - article3〜24 が2026年6月11日のまま更新停止、かつ1,400〜2,100字と薄い
 - パンくずのカテゴリ名が9種類に散らばり、カテゴリページ自体が無い
