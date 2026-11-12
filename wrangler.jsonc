@@ -1,0 +1,14 @@
+{
+  // ただしいカード：Cloudflare Workers（静的ファイル）で公開する設定
+  // html_handling=none … article1.html を /article1 に転送せず、今のURLのまま出す
+  // worker.js は、ファイルが無いURL（「/」など）のときだけ動く
+  "name": "tadashii-card",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none"
+  }
+}
